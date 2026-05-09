@@ -17,7 +17,7 @@ MONGO_URI = os.environ.get("MONGO_URI")          # MongoDB connection string
 BOT_USERNAME = os.environ.get("BOT_USERNAME")    # যেমন: myairdrop_bot
 
 # ─── Database ──────────────────────────────────────────────
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tls=True, tlsAllowInvalidCertificates=True)
 db = client["airdrop_bot"]
 users = db["users"]
 
